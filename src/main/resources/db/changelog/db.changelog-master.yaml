@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dragos
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: dragos
+      changes:
+        - createTable:
+            tableName: workout
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: no_of_repetitions
+                  type: tinyint
+                  constraints:
+                    nullable: true
+              - column:
+                  name: no_of_series
+                  type: tinyint
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: 3
+      author: dragos
+      changes:
+      - addColumn:
+            columns:
+            - column:
+                name: user_id
+                type: bigint
+            tableName: workout
